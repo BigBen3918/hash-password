@@ -4,7 +4,7 @@ import setlog from "../../utils/setlog";
 
 const objectHash_Hash = async (req: Request, res: Response) => {
     try {
-        const { password } = req.body;
+        const { password }: RequestObject = req.body;
         const hashedPassword = hash(password, {
             algorithm: "md5",
             encoding: "base64",
@@ -22,7 +22,7 @@ const objectHash_Hash = async (req: Request, res: Response) => {
 
 const compare_objectHash_Hash = async (req: Request, res: Response) => {
     try {
-        const { hashValue, password } = req.body;
+        const { hashValue, password }: RequestObject = req.body;
         const hashedPassword = hash(password, {
             algorithm: "md5",
             encoding: "base64",

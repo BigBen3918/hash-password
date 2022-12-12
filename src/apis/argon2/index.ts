@@ -4,7 +4,7 @@ import setlog from "../../utils/setlog";
 
 const argon2_Hash = async (req: Request, res: Response) => {
     try {
-        const { password } = req.body;
+        const { password }: RequestObject = req.body;
         let hashedPassword = await argon2.hash(password);
 
         console.log("result: ", hashedPassword);
@@ -19,7 +19,7 @@ const argon2_Hash = async (req: Request, res: Response) => {
 
 const compare_argon2_Hash = async (req: Request, res: Response) => {
     try {
-        const { hash, password } = req.body;
+        const { hash, password }: RequestObject = req.body;
         let isMatch = await argon2.verify(hash, password);
         if (isMatch) {
             res.json({

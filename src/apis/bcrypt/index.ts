@@ -4,7 +4,7 @@ import setlog from "../../utils/setlog";
 
 const bcrypt_Hash = async (req: Request, res: Response) => {
     try {
-        const { password } = req.body;
+        const { password }: RequestObject = req.body;
         const saltRounds = 10;
         const salt = bcrypt.genSaltSync(saltRounds);
         const hashedPassword = await bcrypt.hash(password, salt);
@@ -21,7 +21,7 @@ const bcrypt_Hash = async (req: Request, res: Response) => {
 
 const compare_bcrypt_Hash = async (req: Request, res: Response) => {
     try {
-        const { hash, password } = req.body;
+        const { hash, password }: RequestObject = req.body;
         let isMatch = await bcrypt.compare(password, hash);
         if (isMatch) {
             res.json({

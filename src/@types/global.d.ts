@@ -1,5 +1,5 @@
 declare interface RequestObject {
-    email: string;
-    address: string;
-    amount: number;
+    password: string;
+    hash?: string;
+    hashValue?: string;
 }
